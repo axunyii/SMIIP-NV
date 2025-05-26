@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
+
+	<title>Lightweight Language Model for Speech Synthesis: Attempts and Analysis</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+
+<div class="container" >
+<header role="banner">
+</header>
+<main role="main">
+<article itemscope itemtype="https://schema.org/BlogPosting">
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+	<div class="text-center">
+	<h2>Lightweight Language Model for Speech Synthesis: </h2>
+      <h2>Attempts and Analysis</h2>
+
+        <p class="fst-italic mb-0">
+        	<br>
+      <p></p>
+        </p>
+	</div>
+	<p><b>Abstract.</b> Large-scale autoregressive text-to-speech (TTS) models can generate speech that is nearly indistinguishable from human speech. However, training large language models (LLMs) is challenging due to memory and computational constraints. This paper describes our TTS method for the 2024 Conversational Voice Clone Challenge (CoVoC). Our approach modifies the LauraGPT model to synthesize mixed Chinese and English text by expanding the Chinese pinyin vocabulary and reducing the number of layers in the decoder-only Transformer architecture. Despite using minimal training data, the performance gap between our method and other constrained systems is relatively small in both subjective and some objective evaluations. This paper discusses our attempt to train lightweight LLMs for zero-shot TTS and analyzes the factors contributing to low performance.
+
+	<p>
+	<b>Contents</b>
+      <ul>
+        <li><a href="#model-overview">System Overview</a></li>
+        <li><a href="#zero-shot-icl-samples">Audio Samples</a></li>
+      </ul>
+	</p>
+
+	
+</div>
+
+
+<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">		
+	<h2 id="model-overview" style="text-align: center;">System Overview</h2>
+	<body>
+	<p style="text-align: center;">
+		<img src="pics/picc.png" height="500" width="1000">
+	</p>
+	</body>
+		<p style="text-align: center;" >
+			<b>Figure 1.</b> An overview of our proposed system
+		</p>
+</div>
+
+
+<!--<div class="container pt-4 mt-4 shadow-lg p-4 mb-4 bg-white rounded">-->
+	<h2 id="zero-shot-icl-samples" style="text-align: center;">Audio Samples</h2>
+		<div class="table-responsive pt-3">
+			<table class="table table-hover pt-2">
+				<thead>
+				<tr>
+				<th style="vertical-align : middle;text-align: center">Prompt </th>
+				<th style="vertical-align : middle;text-align: center">Generation</th>
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0001.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/1test1.wav" autoplay/>Your browser does not support the audio element.</audio><br>我觉得是这样的就是嗯这个东西呃，粗浅的称呼它为稚气吧。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0002.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/2test19.wav" autoplay/>Your browser does not support the audio element.</audio><br>啊，再加上啊以前确实我也有一个考飞行员的一个计划。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0004.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/4test38.wav" autoplay/>Your browser does not support the audio element.</audio><br>自动挡只需要踩个油门，然后把个方向盘就ok了。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0006.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/6test78.wav" autoplay/>Your browser does not support the audio element.</audio><br>但是如果你们的双方，啊这个差距太大的话，可能会有一些不可调和的一些观念上的区别，你懂我意思吗？</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0012.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/12test99.wav" autoplay/>Your browser does not support the audio element.</audio><br>但是你不能说就是家庭环就是嗯就是你懂我意思吧，就是他家庭环境不太好的孩子不能说他家教一定不好。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0013.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/13test120.wav" autoplay/>Your browser does not support the audio element.</audio><br>然后有一次啊我就对吧我说人生多尝试嘛，然后我就放弃了飞机坐了高铁，然后八个半小时从武汉到昆明。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0005.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/5test266.wav" autoplay/>Your browser does not support the audio element.</audio><br>因为罗平线那边有一个瀑布群，是非常好看的，叫九龙瀑布群，啊所以我们就驱车前往了。然后当天在那边感受了一下这个啊泛舟游于小溪之上的这种嗯算是武侠仙侠的感觉吧。虽然和大家想象中啊这种轻松惬意的感觉有些不同，啊因为如果去到了瀑布下面真的风非常的大，然后水气也很大。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0009.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/9test426.wav" autoplay/>Your browser does not support the audio element.</audio><br>大漠，多么熟悉的大漠，但现在在金镶玉眼睛里，竟透出几许陌生的意味。是不是因为物虽如旧，人事却非？也可能是因为她的心，已不再是离开前那颗幼稚的心，它已多了许多沧桑，许多回忆，许多遗忘。金镶玉匹马前行，行了许久，竟没有回头望一眼。因为她知道，属于她的地方，永远是这冷酷无情的沙漠，她再也经不起风光旖旎的情感世界，她的心里有一个人的影子，在她今后的生命里，她一定会时常记起这个人，也会记起他的话：回到大漠去，在那里，你才是王者，智者。中原，不是属于你的地方。她的马后，一片生机盎然，花红柳绿；眼前，却是一派苍黄，风急沙狂，也许还有一个地方会使她能慢慢抚平创伤，她看到它时，心里会有种回家的感觉。是龙门客栈，似乎永远存在于沙漠中的龙门客栈。</td>
+					</tr>
+					<tr>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 390px;"><source src="audios/Prompt/ID0010.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+						<td style="vertical-align : middle;text-align:center;"><audio controls="controls" style="width: 590px;"><source src="audios/samples/10test428.wav" autoplay/>Your browser does not support the audio element.</audio><br>他们究竟是什么势力呢？以卫鞅对天下民间力量的了解，竟是想不清来路。能在栎阳城将三十个墨家剑客在片刻之间干净利索的赶走，绝不是等闲门派。战国学派中，能和墨家在秘密行动上一争高下者，惟有鬼谷子一门。其余学派虽多有深藏不露的特出剑士，但毕竟是修学为主，不可能实施这种霹雳风暴般的袭击行动。即或是名将渊薮的兵家，也因志不在此，而素来不搞秘密行动。那么说，是鬼门发动了这场袭击？有可能。因为鬼谷子一门在政学上是坚定的法家，历来反对墨家用大而无当的“兼爱非攻”干预国家法制。再者，鬼门多奇能异士，高明如百里老人者当有百数十人之多，虽在整体行动上与墨家无法抗衡，但在一次行动中击败墨家还是完全有可能的。</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+<!--</div>-->
+
+
+
+</article>
+</main>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="generator" content="Hugo 0.88.1" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
+
+	<title>SMIIP-NV: A Multi-Annotation Non-Verbal Expressive Speech Corpus for LLM-Based Speech Synthesis</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+
+<body data-new-gr-c-s-check-loaded="14.1091.0" data-gr-ext-installed="">
+
+<div class="container" >
+	<header role="banner">
+	</header>
+	<main role="main">
+		<article itemscope itemtype="https://schema.org/BlogPosting">
+
+			<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+				<div class="text-center">
+					<h2>SMIIP-NV: A Multi-Annotation Non-Verbal Expressive Speech Corpus for </h2>
+					<h2>LLM-Based Speech Synthesis</h2>
+
+					<p class="fst-italic mb-0">
+						<br>
+					<p></p>
+					</p>
+				</div>
+				<p><b>Abstract.</b> In natural language communication, emotions are often conveyed through non-verbal sounds (NVs), such as laughter, crying, and cough. However, most existing text-to-speech (TTS) corpora lack annotations for these non-verbal sounds, leading to a scarcity of systems capable of generating them. To address this gap, we introduce SMIIP-NV, a non-verbal speech synthesis corpus annotated with both emotions and non-verbal sounds, including laughter, crying, and cough. To the best of our knowledge, SMIIP-NV is the largest publicly available open-source expressive speech corpus that includes non-verbal speech. It comprises 33 hours of speech data, covering five distinct emotions and three types of non-verbal sounds, with detailed transcriptions and precise timestamps for each occurrence of non-verbal sounds. Additionally, the corpus provides annotations for speech segments that contain laughter or crying. To demonstrate the utility of this dataset, we establish a baseline for non-verbal speech synthesis by employing a lightweight large language model (LLM). Synthesis demos and the dataset are publicly available at: [insert URL].
+
+				<p>
+					<b>Contents</b>
+				<ul>
+					<li><a href="#smiip-nv">SMIIP-NV</a></li>
+					<li><a href="#audio-samples">Audio Samples</a></li>
+					<li><a href="#smiip-nv-download">SMIIP-NV Download</a></li> <!-- Added download link -->
+				</ul>
+				</p>
+
+			</div>
+
+
+			<div class="container pt-5 mt-5 shadow-lg p-5 mb-5 bg-white rounded">
+				<h2 id="smiip-nv" style="text-align: center;">SMIIP-NV</h2>
+				<body>
+				<p style="text-align: center;">
+					<img src="pics/bing1.png" height="500" width="1000">
+				</p>
+				</body>
+				<p style="text-align: center;" >
+					<b>Figure 1.</b> SMIIP-NV Time Distribution across Emotions and Non-verbal Sounds
+				</p>
+
+				<body>
+				<p style="text-align: center;">
+					<img src="pics/tokens.png" height="500" width="1000">
+				</p>
+				</body>
+				<p style="text-align: center;" >
+					<b>Figure 2.</b> Special Token Usage for Non-verbal Sounds and Emotions
+				</p>
+
+				<body>
+				<p style="text-align: center;">
+					<img src="pics/modelmini.png" height="500" width="1000">
+				</p>
+				</body>
+				<p style="text-align: center;" >
+					<b>Figure 3.</b> Overall Architecture of the Proposed Baseline Model
+				</p>
+
+			</div>
+
+
+			<div class="container pt-4 mt-4 shadow-lg p-4 mb-4 bg-white rounded">
+				<h2 id="audio-samples" style="text-align: center;">Audio Samples</h2>
+
+				<!-- Section 1: SMIIP-NV Raw Data Samples (5 Emotions) -->
+				<h3 style="text-align: center;">SMIIP-NV Raw Data Samples</h3>
+				<div class="table-responsive pt-3">
+					<table class="table table-hover pt-2">
+						<thead>
+						<tr>
+							<th style="vertical-align: middle; text-align: center;">Emotion</th>
+							<th style="vertical-align: middle; text-align: center;">Audio Sample</th>
+						</tr>
+						</thead>
+						<tbody>
+						<!-- Happy Emotion Sample (Raw Data) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">Happy <br>去电影院看电影，结果发现坐在我旁边的是个吃货，&lt;laughter&gt;气氛瞬间轻松起来。</td> <!-- 修改了 <laughter> -->
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/raw_smiipnv/happy_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Sad Emotion Sample (Raw Data) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">Sad<br>走在曾经熟悉的地方&lt;crying&gt;，现在却显得如此陌生。</td> <!-- 修改了 <crying> -->
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/raw_smiipnv/sad_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Neutral Emotion Sample (Raw Data) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">Neutral<br>我读了一本新书&lt;cough&gt;，内容很吸引人。</td> <!-- 修改了 <cough> -->
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/raw_smiipnv/neutral_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Angry Emotion Sample (Raw Data) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">Angry<br>每个小问题都能让我心情恶劣&lt;cough&gt;，真是烦透了。</td> <!-- 修改了 <cough> -->
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/raw_smiipnv/angry_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Surprised Emotion Sample (Raw Data) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">Surprised<br>水獺在水中玩耍时，竟然会使用小石头工具&lt;cough&gt;。</td> <!-- 修改了 <cough> -->
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/raw_smiipnv/surprised_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+
+
+
+				<!-- Section 2: Baseline Model Synthesis Samples (3 NV + 5 Emotions) -->
+				<h3 style="text-align: center;">Baseline Model Synthesis Samples</h3>
+				<div class="table-responsive pt-3">
+					<table class="table table-hover pt-2">
+						<thead>
+						<tr>
+							<th style="vertical-align: middle; text-align: center;">Text</th>
+							<th style="vertical-align: middle; text-align: center;">Synthesized Audio</th>
+						</tr>
+						</thead>
+						<tbody>
+						<!-- Laughter NV Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">收到朋友的生日礼物，居然是一顿外卖！&lt;laughter&gt;这可真是别出心裁。</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/laughter_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Crying NV Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">看着昔日的留言&lt;crying&gt;心如刀绞，无法释怀。</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/crying_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Cough NV Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">翻开一本新书，&lt;cough&gt;期待着接下来的故事展开。</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/cough_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Happy Emotion Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">&lt;|emo_HAPPY|&gt;看着镜子里的我，突然觉得我像个开心果！&lt;laughter&gt;这个比喻真不错！&lt;/|emo_HAPPY|&gt;</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/happy_emo_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Sad Emotion Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">&lt;|emo_SAD|&gt;在梦中再次相遇，&lt;crying&gt;，醒来却只剩空虚。&lt;/|emo_SAD|&gt;</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/sad_emo_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Neutral Emotion Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">&lt;|emo_NEUTRAL|&gt;收拾房间的过程中，发现了许多旧物件，引发怀旧。&lt;/|emo_NEUTRAL|&gt;</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/neutral_emo_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Angry Emotion Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">|emo_ANGRY|&gt;面对不断的挑衅，我的耐心已经达到极限！&lt;/|emo_ANGRY|&gt;</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/angry_emo_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Surprised Emotion Sample (Baseline) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">&lt;|emo_SURPRISED|&gt;蜜蜂是唯一能以舞蹈方式传递信息的昆虫，太神奇了！&lt;/|emo_SURPRISED|&gt;</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/baseline_synthesis/surprised_emo_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Section 3: CosyVoice2 Fine-tuned Synthesis Samples (3 NV) -->
+				<h3 style="text-align: center;">CosyVoice2 Fine-tuned Synthesis Samples</h3>
+				<div class="table-responsive pt-3">
+					<table class="table table-hover pt-2">
+						<thead>
+						<tr>
+							<th style="vertical-align: middle; text-align: center;">Text Prompt (with tokens)</th>
+							<th style="vertical-align: middle; text-align: center;">Synthesized Audio</th>
+						</tr>
+						</thead>
+						<tbody>
+						<!-- Laughter NV Sample (CosyVoice2) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">我发现小的时候玩具现在卖的贵&lt;laughter&gt;，我真希望我能早点发家致富！</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/cosyvoice2_synthesis/laughter_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Crying NV Sample (CosyVoice2) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">那些共同的梦想，如今只剩回忆。&lt;crying&gt;我再也无力追寻。</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/cosyvoice2_synthesis/crying_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						<!-- Cough NV Sample (CosyVoice2) -->
+						<tr>
+							<td style="vertical-align: middle; text-align: center;">今天参加了一场和朋友的&lt;cough&gt;线上游戏</td>
+							<td style="vertical-align: middle; text-align: center;">
+								<audio controls="controls" style="width: 500px;">
+									<source src="audios/cosyvoice2_synthesis/cough_sample.wav" type="audio/wav"/> <!-- REPLACE WITH ACTUAL FILE PATH -->
+									Your browser does not support the audio element.
+								</audio>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+			<!-- New License Section -->
+			<div class="container pt-4 mt-4 shadow-lg p-4 mb-4 bg-white rounded">
+				<h2 id="smiip-nv-download" style="text-align: center;">SMIIP-NV Download</h2>
+				<p>
+					The SMIIP-NV dataset is available under a non-commercial license. This means the dataset can be freely used for research and educational purposes, but commercial use is prohibited.
+				</p>
+				<p style="text-align: center;">
+					<a href="[INSERT_LICENSE_URL_HERE]" target="_blank" class="btn btn-primary">Download</a>
+				</p>
+			</div>
+
+
+
+		</article>
+	</main>
+</div>
+
+</body>
+</html>
