@@ -6,9 +6,10 @@
 	<meta name="generator" content="Hugo 0.88.1" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href=""https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 	<link rel="stylesheet" href="css/custom.css">
 	<link rel="stylesheet" href="css/normalize.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 	<title>SMIIP-NV: A Multi-Annotation Non-Verbal Expressive Speech Corpus for LLM-Based Speech Synthesis</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -34,6 +35,82 @@
 					<p></p>
 					</p>
 				</div>
+
+				<!-- Authors Section -->
+				<div class="authors-section mt-4 mb-4">
+					<div class="row justify-content-center">
+						<div class="col-lg-10">
+							<div class="authors-list" style="background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+								<div class="row">
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Zhuojun Wu</strong></h6>
+											<p class="mb-1 small text-muted">zhuojun.wu@whu.edu.cn</p>
+											<p class="mb-0 small">Wuhan University; Duke Kunshan University</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Dong Liu</strong></h6>
+											<p class="mb-1 small text-muted">dong.liu@whu.edu.cn</p>
+											<p class="mb-0 small">Wuhan University; Duke Kunshan University</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Juan Liu</strong></h6>
+											<p class="mb-1 small text-muted">liujuan@whu.edu.cn</p>
+											<p class="mb-0 small">Wuhan University</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Yechen Wang</strong></h6>
+											<p class="mb-1 small text-muted">yechen@ofspectrum.com</p>
+											<p class="mb-0 small">OfSpectrum, Inc.</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Linxi Li</strong></h6>
+											<p class="mb-1 small text-muted">linxili@ofspectrum.com</p>
+											<p class="mb-0 small">OfSpectrum, Inc.</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Liwei Jin</strong></h6>
+											<p class="mb-1 small text-muted">liweijin@ofspectrum.com</p>
+											<p class="mb-0 small">OfSpectrum, Inc.</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Hui Bu</strong></h6>
+											<p class="mb-1 small text-muted">buhui@aishelldata.com</p>
+											<p class="mb-0 small">Beijing AISHELL Technology Co., Ltd.</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Pengyuan Zhang</strong></h6>
+											<p class="mb-1 small text-muted">zhangpengyuan@hccl.ioa.ac.cn</p>
+											<p class="mb-0 small">Chinese Academy of Sciences</p>
+										</div>
+									</div>
+									<div class="col-md-4 mb-3">
+										<div class="author-item">
+											<h6 class="mb-1"><strong>Ming Li</strong></h6>
+											<p class="mb-1 small text-muted">ming.li369@dukekunshan.edu.cn</p>
+											<p class="mb-0 small">Wuhan University; Duke Kunshan University</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<p><b>Abstract.</b> In natural language communication, emotions are often conveyed through non-verbal sounds (NVs), such as laughter, crying, and cough. However, most existing text-to-speech (TTS) corpora lack annotations for these non-verbal sounds, leading to a scarcity of systems capable of generating them. To address this gap, we introduce SMIIP-NV, a non-verbal speech synthesis corpus annotated with both emotions and non-verbal sounds, including laughter, crying, and cough. To the best of our knowledge, SMIIP-NV is the largest publicly available open-source expressive speech corpus that includes non-verbal speech. It comprises 33 hours of speech data, covering five distinct emotions and three types of non-verbal sounds, with detailed transcriptions and precise timestamps for each occurrence of non-verbal sounds. Additionally, the corpus provides annotations for speech segments that contain laughter or crying. To demonstrate the utility of this dataset, we establish a baseline for non-verbal speech synthesis by employing a lightweight large language model (LLM).
 				<p>
 					<b>Contents</b>
@@ -297,24 +374,45 @@
 				<p>
 					The SMIIP-NV dataset is licensed under CC BY-NC 4.0. This allows the dataset to be freely used for research and educational purposes, provided that proper attribution is given. However, commercial use of the dataset is not permitted.
 				</p>
-				<p style="text-align: center;">
-					<a href="https://huggingface.co/datasets/xunyi/SMIIP-NV/" target="_blank" class="btn btn-primary">Download</a>
-				</p>
+
+				<!-- Download Options -->
+				<div class="row justify-content-center mt-4">
+					<div class="col-md-5 mb-3">
+						<div class="download-card p-4 border rounded text-center" style="background-color: #f8f9fa; border: 2px solid #e9ecef;">
+							<div class="mb-3">
+								<img src="pics/huggingface_logo-noborder.svg" alt="Huggingface" style="height: 120px; width: auto">
+							</div>
+							<h5 class="mb-3">HuggingFace</h5>
+							<p class="text-muted mb-3">Download from HuggingFace Datasets</p>
+							<a href="https://huggingface.co/datasets/xunyi/SMIIP-NV/" target="_blank" class="btn btn-primary btn-lg">
+								<i class="fas fa-download"></i> Download
+							</a>
+						</div>
+					</div>
+					<div class="col-md-5 mb-3">
+						<div class="download-card p-4 border rounded text-center" style="background-color: #f8f9fa; border: 2px solid #e9ecef;">
+							<div class="mb-3">
+								<img src="pics/AISHELL.png" alt="AI-SHELL Logo" style="height: 120px; width: auto">
+							</div>
+							<h5 class="mb-3">AI-SHELL</h5>
+							<p class="text-muted mb-3">Download from AI-SHELL Platform</p>
+							<a href="https://aishelltech.com/" target="_blank" class="btn btn-success btn-lg">
+								<i class="fas fa-download"></i> Download
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="container pt-4 mt-4 shadow-lg p-4 mb-4 bg-white rounded">
-    <h2 id="source-code" style="text-align: center;">Source Code</h2>
-    <p style="text-align: center;">
-        You can access the finetuned CosyVoice2 source code for the SMIIP-NV on HuggingFace at the following link:
-    </p>
-    <p style="text-align: center;">
-        <a href="https://huggingface.co/xunyi/SMIIP-NV_finetune_CosyVoice2" target="_blank" class="btn btn-primary">View Source Code</a>
-    </p>
-</div>
-
-
-
-
+				<h2 id="source-code" style="text-align: center;">Source Code</h2>
+				<p style="text-align: center;">
+					You can access the finetuned CosyVoice2 source code for the SMIIP-NV on HuggingFace at the following link:
+				</p>
+				<p style="text-align: center;">
+					<a href="https://huggingface.co/xunyi/SMIIP-NV_finetune_CosyVoice2" target="_blank" class="btn btn-primary">View Source Code</a>
+				</p>
+			</div>
 
 		</article>
 	</main>
